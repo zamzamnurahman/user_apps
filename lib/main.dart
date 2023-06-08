@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:user_apps/views/choose_user_screen.dart';
-import 'package:user_apps/views/home_screen.dart';
+import 'package:user_apps/views/main_screen.dart';
 import 'package:user_apps/views/splash_screen.dart';
 
 void main() {
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => const SplashScreen(),
         "/choose-user": (context) => const ChooseUserScreen(),
-        "/home": (context) => const HomeScreen(),
+        "/main": (context) => const MainScreen(),
       },
     );
   }
