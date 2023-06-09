@@ -20,4 +20,6 @@ class PostController {
       throw Exception(error);
     }
   }
+
+  ///[*TODO tambahkan kirim postingan]
 }

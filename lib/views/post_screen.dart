@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:user_apps/controller/post_controll.dart';
+import 'package:user_apps/model/user.dart';
 
 class PostScreen extends StatefulWidget {
-  const PostScreen({super.key});
+  final User user;
+  const PostScreen(this.user, {super.key});
 
   @override
   State<PostScreen> createState() => _PostScreenState();
@@ -24,6 +27,12 @@ class _PostScreenState extends State<PostScreen> {
     _titleCtrl.dispose();
     _descriptionCtrl.dispose();
     super.dispose();
+  }
+
+  clearTextEditing() {
+    _titleCtrl.clear();
+    _descriptionCtrl.clear();
+    // setState(() {});
   }
 
   @override
@@ -74,7 +83,21 @@ class _PostScreenState extends State<PostScreen> {
                       vertical: 15,
                     )),
                     onPressed: () {
-                      if (_formKey.currentState!.validate()) {}
+                      if (_formKey.currentState!.validate()) {
+                        PostController().sendNewPost(
+                          widget.user.id!,
+                          title: _titleCtrl.text,
+                          description: _descriptionCtrl.text,
+                        );
+                        ScaffoldMessenger.of(context)
+                            .showSnackBar(const SnackBar(
+                          backgroundColor: Colors.green,
+                          behavior: SnackBarBehavior.floating,
+                          content: Text("Successfully send new post"),
+                        ));
+                        clearTextEditing();
+                        FocusScope.of(context).unfocus();
+                      }
                     },
                     child: const Text("Posting"))
               ],

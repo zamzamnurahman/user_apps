@@ -31,7 +31,7 @@ class _MainScreenState extends State<MainScreen> {
         index: _index,
         children: [
           const HomeScreen(),
-          const PostScreen(),
+          PostScreen(widget.user!),
           ProfileScreen(widget.user!)
         ],
       )),
