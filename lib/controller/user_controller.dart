@@ -5,8 +5,6 @@ import 'package:http/http.dart' as http;
 import 'package:user_apps/config/constant.dart';
 import 'package:user_apps/model/user.dart';
 
-import '../model/post.dart';
-
 class UserController {
   User? _user;
 
