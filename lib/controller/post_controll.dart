@@ -14,6 +14,7 @@ class PostController {
       // List<Map<String, dynamic>> posts = await getPosts();
       List dataDecode = jsonDecode(response.body);
       List<Post> dataposting = dataDecode.map((e) => Post.fromJson(e)).toList();
+      dataposting.shuffle();
       return dataposting;
     } catch (error) {
       throw Exception(error);
