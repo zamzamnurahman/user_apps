@@ -9,8 +9,14 @@ import '../config/constant.dart';
 class PostController {
   Future<List<Post>> getPostData() async {
     Uri url = Uri.parse(ApiConstant.baseUrl + ApiConstant.postEndpoint);
-      return result;
+    try {
+      Response response = await http.get(url);
+      // List<Map<String, dynamic>> posts = await getPosts();
+      List dataDecode = jsonDecode(response.body);
+      List<Post> dataposting = dataDecode.map((e) => Post.fromJson(e)).toList();
+      return dataposting;
     } catch (error) {
       throw Exception(error);
     }
   }
+}
