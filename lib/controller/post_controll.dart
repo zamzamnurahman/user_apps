@@ -21,6 +21,19 @@ class PostController {
     }
   }
 
-  ///[*TODO tambahkan kirim postingan]
+  Future<void> sendNewPost(int userId,
+      {String? title, String? description}) async {
+    Uri url = Uri.parse(ApiConstant.baseUrl + ApiConstant.postEndpoint);
+    try {
+      Object data = {
+        "title": title,
+        "body": description,
+        "userId": userId.toString(),
+      };
+      Response response = await http.post(url, body: data);
+      print(response.body);
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
 }
-
