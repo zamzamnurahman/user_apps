@@ -23,3 +23,4 @@ class PostController {
 
   ///[*TODO tambahkan kirim postingan]
 }
+
