@@ -74,7 +74,6 @@ class PostDetailScreen extends StatelessWidget {
                             subtitle: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Divider(),
                                 const SizedBox(height: 5),
                                 Text(comment.name!,
                                     style: const TextStyle(
