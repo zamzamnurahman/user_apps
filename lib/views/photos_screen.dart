@@ -46,7 +46,7 @@ class PhotosScreen extends StatelessWidget {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(10.0),
+                          padding: const EdgeInsets.all(12.0),
                           child: Text(photo.title!),
                         ),
                       ],
