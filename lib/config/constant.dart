@@ -3,4 +3,6 @@ class ApiConstant {
   static String userEndpoint = "/users";
   static String postEndpoint = "/posts";
   static String commentEndpoint = "/comments";
+  static String albumEndpoint = "/albums";
+  static String photoEndpoint = "/photos";
 }

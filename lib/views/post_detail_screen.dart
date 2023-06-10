@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:user_apps/controller/comment_controller.dart';
 import 'package:user_apps/model/post.dart';
 import 'package:user_apps/model/user.dart';
+import 'package:user_apps/views/album_screen.dart';
 
 import '../model/comment.dart';
 
@@ -29,6 +30,15 @@ class PostDetailScreen extends StatelessWidget {
               ),
               title: Text(user.username!),
               subtitle: Text(user.name!),
+              trailing: IconButton(
+                icon: const Icon(Icons.image),
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return AlbumScreen(user: user);
+                  }));
+                },
+              ),
             ),
             const Divider(),
             ListTile(

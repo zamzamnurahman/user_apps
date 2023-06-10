@@ -13,7 +13,6 @@ class CommentController {
     );
 
     Response response = await http.get(url);
-    print(response.body);
     List data = jsonDecode(response.body);
 
     List<Comment> result = data.map((e) => Comment.fromJson(e)).toList();
