@@ -22,14 +22,34 @@ class PhotosScreen extends StatelessWidget {
               );
             }
             return GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: snapshot.data!.length,
+                itemCount: snapshot.data!.length,
+                shrinkWrap: true,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
                 ),
                 itemBuilder: (_, index) {
                   Photo photo = snapshot.data![index];
                   return Card(
                     child: Column(
-                      children: [Image.network(photo.thumbnailUrl!)],
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: SizedBox(
+                            width: double.infinity,
+                            child: Image.network(
+                              photo.url!,
+                              fit: BoxFit.cover,
+                              errorBuilder: (context, object, stack) {
+                                return const Text("Photo not Found");
+                              },
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Text(photo.title!),
+                        ),
+                      ],
                     ),
                   );
                 });
